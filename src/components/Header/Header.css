@@ -1,0 +1,16 @@
+.header-container{
+    padding: 10px;
+    margin:  0px;
+    background-color: white;
+}
+
+.nav-item{
+    padding: 8px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.nav-item:hover{
+    text-decoration: underline;
+    color: rgb(255, 81, 0);
+}

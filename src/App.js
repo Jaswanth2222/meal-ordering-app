@@ -1,25 +1,41 @@
-import logo from './logo.svg';
 import './App.css';
+import MealList from './components/Body/MealList';
+import { Outlet, createBrowserRouter } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Cart from './components/Body/Cart';
+import MenuItemDetails from './components/Body/MenuItemDetails';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Outlet />
     </div>
   );
 }
+
+export const appRouter = createBrowserRouter(
+  [
+    {
+      path: '/',
+      element: <App />,
+      children: [
+        {
+          path: '/',
+          element : <MealList />
+        },
+        {
+          path: '/cart',
+          element : <Cart />
+        },
+        {
+          path: '/meal/:mealId',
+          element : <MenuItemDetails />
+          
+        }
+      ]
+    }
+  ]
+)
 
 export default App;
